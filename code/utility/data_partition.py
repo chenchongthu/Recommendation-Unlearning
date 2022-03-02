@@ -13,15 +13,14 @@ def E_score1(a,b):
 def E_score2(a,b):
     return np.sum(np.power(a-b, 2))
 
+
+# Interaction-based Balanced Partition
 def data_partition_1(train_items,k,T):
 
     with open(args.data_path + args.dataset + '/user_pretrain.pk', 'r') as f:
         uidW = pickle.load(f)
     with open(args.data_path + args.dataset + '/item_pretrain.pk', 'r') as f:
         iidW = pickle.load(f)
-
-
-
 
     # get_data_interactions_1
     data = []
@@ -111,7 +110,7 @@ def data_partition_1(train_items,k,T):
     return C,users,items
 
 
-# user based Partition
+# User-based Balanced Partition
 def data_partition_2(train_items,k,T):
     data = train_items
 
@@ -182,6 +181,7 @@ def data_partition_2(train_items,k,T):
     return C,users,items
 
 
+#Random
 def data_partition_3(train_items,k):
 
     data = []
