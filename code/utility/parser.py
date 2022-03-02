@@ -16,7 +16,7 @@ def parse_args():
     parser.add_argument('--proj_path', nargs='?', default='',
                         help='Project path.')
 
-    parser.add_argument('--dataset', nargs='?', default='ml-10m',
+    parser.add_argument('--dataset', nargs='?', default='ml-1m',
                         help='Choose a dataset from {ml-1m, yelp2018, ml-10m}')
 
     parser.add_argument('--pretrain', type=int, default=0,
