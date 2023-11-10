@@ -1,0 +1,11 @@
+.vscode
+
+# Cache folders
+.ruff_cache
+__pycache__
+
+# Build folder
+build
+
+# Piplock
+Pipfile.lock

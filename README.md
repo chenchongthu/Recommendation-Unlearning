@@ -1,8 +1,8 @@
 # RecEraser
 
-This is our implementation of the paper: 
+This is our implementation of the paper:
 
-*Chong Chen, Fei Sun, Min Zhang and Bolin Ding. 2022. [Recommendation Unlearning.](https://arxiv.org/pdf/2201.06820.pdf) 
+*Chong Chen, Fei Sun, Min Zhang and Bolin Ding. 2022. [Recommendation Unlearning.](https://arxiv.org/pdf/2201.06820.pdf)
 In TheWebConf'22.*
 
 **Please cite our TheWebConf'22 paper if you use our codes. Thanks!**
@@ -55,20 +55,3 @@ BPR: adagrade	lr=0.05	reg=0.001	batch=256
 WMF: adagrade	lr=0.05	reg=0.01	batch=256	weight=0.2	drop=0.7
 LightGCN: adam lr=0.001	reg=1e-3	batch=1024
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

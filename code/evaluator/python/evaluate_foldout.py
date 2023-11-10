@@ -1,25 +1,28 @@
 """
 @author: Zhongchuan Sun
 """
-import itertools
-import numpy as np
-import sys
 import heapq
+import itertools
+import sys
 from concurrent.futures import ThreadPoolExecutor
+
+import numpy as np
+
 
 def argmax_top_k(a, top_k=50):
     ele_idx = heapq.nlargest(top_k, zip(a, itertools.count()))
     return np.array([idx for ele, idx in ele_idx], dtype=np.intc)
 
+
 def precision(rank, ground_truth):
     hits = [1 if item in ground_truth else 0 for item in rank]
-    result = np.cumsum(hits, dtype=np.float)/np.arange(1, len(rank)+1)
+    result = np.cumsum(hits, dtype=np.float32) / np.arange(1, len(rank) + 1)
     return result
 
 
 def recall(rank, ground_truth):
     hits = [1 if item in ground_truth else 0 for item in rank]
-    result = np.cumsum(hits, dtype=np.float) / len(ground_truth)
+    result = np.cumsum(hits, dtype=np.float32) / len(ground_truth)
     return result
 
 
@@ -29,7 +32,7 @@ def map(rank, ground_truth):
     sum_pre = np.cumsum(pre, dtype=np.float32)
     gt_len = len(ground_truth)
     # len_rank = np.array([min(i, gt_len) for i in range(1, len(rank)+1)])
-    result = sum_pre/gt_len
+    result = sum_pre / gt_len
     return result
 
 
@@ -40,11 +43,13 @@ def ndcg(rank, ground_truth):
 
     # calculate idcg
     idcg = np.cumsum(1.0 / np.log2(np.arange(2, len_rank + 2)))
-    idcg[idcg_len:] = idcg[idcg_len-1]
+    idcg[idcg_len:] = idcg[idcg_len - 1]
 
     # idcg = np.cumsum(1.0/np.log2(np.arange(2, len_rank+2)))
-    dcg = np.cumsum([1.0/np.log2(idx+2) if item in ground_truth else 0.0 for idx, item in enumerate(rank)])
-    result = dcg/idcg
+    dcg = np.cumsum(
+        [1.0 / np.log2(idx + 2) if item in ground_truth else 0.0 for idx, item in enumerate(rank)]
+    )
+    result = dcg / idcg
     return result
 
 
@@ -55,7 +60,7 @@ def mrr(rank, ground_truth):
             last_idx = idx
             break
     result = np.zeros(len(rank), dtype=np.float32)
-    result[last_idx:] = 1.0/(last_idx+1)
+    result[last_idx:] = 1.0 / (last_idx + 1)
     return result
 
 

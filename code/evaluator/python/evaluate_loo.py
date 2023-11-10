@@ -1,11 +1,14 @@
 """
 @author: Zhongchuan Sun
 """
-import itertools
-import numpy as np
-from concurrent.futures import ThreadPoolExecutor
-import sys
 import heapq
+import itertools
+import sys
+from concurrent.futures import ThreadPoolExecutor
+
+import numpy as np
+
+
 def argmax_top_k(a, top_k=50):
     ele_idx = heapq.nlargest(top_k, zip(a, itertools.count()))
     return np.array([idx for ele, idx in ele_idx], dtype=np.intc)
@@ -29,7 +32,7 @@ def ndcg(rank, ground_truth):
             last_idx = idx
             break
     result = np.zeros(len(rank), dtype=np.float32)
-    result[last_idx:] = 1.0/np.log2(last_idx+2)
+    result[last_idx:] = 1.0 / np.log2(last_idx + 2)
     return result
 
 
@@ -40,7 +43,7 @@ def mrr(rank, ground_truth):
             last_idx = idx
             break
     result = np.zeros(len(rank), dtype=np.float32)
-    result[last_idx:] = 1.0/(last_idx+1)
+    result[last_idx:] = 1.0 / (last_idx + 1)
     return result
 
 

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scipy = "==1.10.1"
+tensorflow = "==2.13.0"
+cython = "==3.0.4"
+
+[dev-packages]
+ruff = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.8"
+python_full_version = "3.8.10"
