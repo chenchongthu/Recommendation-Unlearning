@@ -5,8 +5,8 @@ from time import time
 
 import numpy as np
 import tensorflow.compat.v1 as tf
-from utility.batch_test import args, data_generator, test
-from utility.helper import early_stopping, ensureDir
+from utils.batch_test import args, data_generator, test
+from utils.helper import early_stopping, ensureDir
 
 tf.disable_v2_behavior()
 

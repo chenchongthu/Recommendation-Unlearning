@@ -3,7 +3,7 @@ import random
 
 import numpy as np
 
-from utility.parser import parse_args
+from utils.parser import parse_args
 
 args = parse_args()
 

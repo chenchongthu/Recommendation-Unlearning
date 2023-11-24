@@ -13,7 +13,7 @@ from time import time
 import numpy as np
 import scipy.sparse as sp
 
-from utility.data_partition import data_partition_1, data_partition_2, data_partition_3
+from utils.data_partition import data_partition_1, data_partition_2, data_partition_3
 
 
 def ensureDir(dir_path):

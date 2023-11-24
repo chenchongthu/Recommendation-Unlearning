@@ -10,8 +10,8 @@ import multiprocessing
 import numpy as np
 from evaluator import eval_score_matrix_foldout
 
-from utility.load_data import Data
-from utility.parser import parse_args
+from utils.load_data import Data
+from utils.parser import parse_args
 
 cores = multiprocessing.cpu_count() // 2
 
