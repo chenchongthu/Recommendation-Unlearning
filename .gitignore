@@ -9,3 +9,9 @@ build
 
 # Piplock
 Pipfile.lock
+
+# dataset
+data
+
+# weights and logs
+weights
